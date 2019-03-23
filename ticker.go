@@ -13,11 +13,11 @@ type Ticker struct {
 	C <-chan struct{}
 
 	// c is the internal version of C. It holds the same channel, but allows this package to write to it as well.
-	c chan struct{}
-	min time.Duration
-	max time.Duration
-	factor float32
-	current time.Duration
+	c        chan struct{}
+	min      time.Duration
+	max      time.Duration
+	factor   float32
+	current  time.Duration
 	shutChan chan struct{}
 }
 
@@ -51,16 +51,16 @@ func NewTicker(min time.Duration, max time.Duration, factor float32) (*Ticker, e
 	c := make(chan struct{}, 1)
 	shutChan := make(chan struct{})
 	ticker := &Ticker{
-		C: c,
-		c: c,
-		min: min,
-		max: max,
-		current: min,
-		factor: factor,
+		C:        c,
+		c:        c,
+		min:      min,
+		max:      max,
+		current:  min,
+		factor:   factor,
 		shutChan: shutChan,
 	}
 
-	go func () {
+	go func() {
 		ticker.run()
 	}()
 
