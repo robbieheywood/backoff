@@ -1,5 +1,7 @@
 # Backoff
 
+[![GoDoc][godoc image]][godoc]
+
 This is a simple Go library implementing a ticker with exponential back off.
 The API follows that of time.Ticker in the standard library, 
 except with additional parameters for describing the backoff.
@@ -24,3 +26,6 @@ for {
 	}
 }
 ```
+
+[godoc]: https://godoc.org/github.com/robbieheywood/backoff
+[godoc image]: https://godoc.org/github.com/cenkalti/backoff?status.png
